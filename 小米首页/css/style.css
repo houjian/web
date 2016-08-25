@@ -1,44 +1,58 @@
 @charset "UTF-8";
 
 /*reset*/
-body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,form,input,textarea,th,td,select{margin:0;padding:0;}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,form,input{margin:0;padding:0;}
 li{list-style:none;}
 a{text-decoration:none;}
 img{border:none;}
-table{border-collapse:collapse;}
-input,textarea{outline:none;}
+input{outline:none;}
 body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;color:#333;}
 
-.container{width:1226px;margin:0 auto;zoom:1}
-.container:after{content:"";display:block;clear:both}
+/*public*/
+.clear{zoom:1;}
+.clear:after{content:"";display:block;clear:both;}
+.fl{float:left;}
+.fr{float:right;}
+
+.container{width:1226px;margin:0 auto;}
+
+/*顶部topbar*/
+#topbar{height:40px;font-size:12px;background:#333;}
+#topbar .nav,#topbar .login{height:40px;line-height:40px;}
+#topbar .nav a,#topbar .login a{color:#b0b0b0;}
+#topbar .nav a:hover,#topbar .login a:hover{color:#f8f8f8;}
+#topbar .nav .sep,#topbar .login .sep{color:#424242;margin:0 0.35em;}
+#topbar .cart{width:120px;margin-left:20px;position:relative;}
+#topbar .cart .cart-link{display:block;height:40px;line-height:40px;background:#424242;color:#b0b0b0;text-align:center;}
+#topbar .cart .cart-link .icon{display:inline-block;width:20px;height:20px;vertical-align:-4px;margin-right:5px;
+    background:url("../img/icon/cart.png") no-repeat 0 0;}
+#topbar .cart .active{background:#fff;color:#ff6700;}
+#topbar .cart .active .icon{background-position:0 -20px;}
+#topbar .cart .cart-down{display:none;position:absolute;top:40px;right:0;width:320px;height:100px;line-height:100px;
+    background:#fff;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.2);color:#424242;}
+#topbar .cart .active .cart-down{display:block}
 
 /*header*/
-#header .container{padding:22px 0 23px 0;}
-
-#header .logo{float:left;width:55px;background:#ff6700;}
+#header .container{padding-top:22px;margin-bottom:23px;}
+#header .logo{width:55px;background:#ff6700;}
 #header .logo a{display:block;width:55px;height:55px;background:url("../img/mi-logo.png") no-repeat center;}
-
-#header .nav{float:left;}
-#header .nav ul{height:55px;margin-left:180px;}
-#header .nav .nav-list{display:list-item;float:left;height:55px;line-height:55px;margin:0 10px;}
-#header .nav .nav-list a{font-size:15px;color:#333;}
-#header .nav .nav-list a:hover{color:#ff6700;}
-
-#header .search{float:right;}
-#header .search form{width:296px;height:50px;margin:3px 0 2px;position:relative;}
-#header .search .text{position:absolute;top:0;right:51px;width:223px;height:48px;z-index:1;padding:0 10px;
-    border:1px solid #e0e0e0;font-size:14px;line-height:48px;}
-#header .search .btn{position:absolute;top:0;right:0;width:52px;height:50px;z-index:2;background:none;
-    border:1px solid #e0e0e0;}
-#header .search .btn:hover{background-color:#ff6700;border:1px solid #ff6700;}
-
+#header .nav ul{margin-left:180px;}
+#header .nav li{float:left;height:55px;line-height:55px;margin:0 10px;}
+#header .nav li a{font-size:16px;color:#333;}
+#header .nav li a:hover{color:#ff6700;}
+#header .search form{width:296px;height:50px;margin-top:3px;margin-bottom:2px;position:relative;}
+#header .search .text,#header .search .btn{position:absolute;top:0;border:1px solid #e0e0e0;}
+#header .search .text{right:51px;width:223px;height:48px;padding:0 10px;font-size:14px;line-height:48px;}
+#header .search .btn{right:0;width:52px;height:50px;background:#fff;}
+#header .search .hover .text,#header .search .hover .btn{border:1px solid #b0b0b0;}
+#header .search .focus .text,#header .search .focus .btn{border:1px solid #ff6700;}
+#header .search .focus .btn{background:#ff6700;}
 #header .search .hot{position:absolute;top:14px;right:61px;z-index:3;}
-#header .search .hot a{display:inline-block;font-size:12px;color:#757575;background-color:#eee;padding:0 5px;}
-#header .search .hot a:hover{background-color:#ff6700;color:#fff;}
-
+#header .search .hot a{display:inline-block;font-size:12px;color:#757575;background:#eee;padding:0 5px;}
+#header .search .hot a:hover{background:#ff6700;color:#fff;}
 #header .tips{display:none;position:absolute;top:49px;left:0;border:1px solid #ff6700;}
-#header .search li a{display:block;width:213px;height:30px;line-height:30px;padding:0 15px;font-size:12px;}
-#header .search li a:hover{background-color:#f7f7f7;}
+#header .search li a{display:block;width:213px;height:30px;line-height:30px;padding:0 15px;font-size:12px;background:#fff;}
+#header .search li a:hover{background:#f7f7f7;}
 #header .search li .name{color:#5e5e5e;}
 #header .search li .num{float:right;color:#c7c7c7;}
 
