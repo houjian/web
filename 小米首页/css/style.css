@@ -32,8 +32,8 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
     background:#fff;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.2);color:#424242;}
 #topbar .cart .active .cart-down{display:block}
 
-/*header*/
-#header .container{padding-top:22px;margin-bottom:23px;}
+/*头部导航header*/
+#header .container{padding-top:22px;padding-bottom:23px;}
 #header .logo{width:55px;background:#ff6700;}
 #header .logo a{display:block;width:55px;height:55px;background:url("../img/mi-logo.png") no-repeat center;}
 #header .nav ul{margin-left:180px;}
@@ -55,13 +55,14 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #header .search li a:hover{background:#f7f7f7;}
 #header .search li .name{color:#5e5e5e;}
 #header .search li .num{float:right;color:#c7c7c7;}
-
-#header .dropdown{height:229px;border-top:1px solid #e0e0e0;box-shadow:0 3px 3px rgba(0,0,0,0.2);}
-#header .dropdown .container{padding-top:35px;}
-#header .dropdown li{float:left;width:203px;height:100px;border-left:1px solid #e0e0e0;text-align:center;}
-#header .dropdown .pic{width:160px;height:110px;margin-left:auto;margin-right:auto;margin-bottom:15px;}
+#header .dropdown{display:none;height:229px;border-top:1px solid #e0e0e0;box-shadow:0 3px 3px rgba(0,0,0,0.2);background:#fff;}
+#header .dropdown .container{padding:0;}
+#header .dropdown ul{padding-top:35px;height:195px;}
+#header .dropdown li{float:left;width:203px;height:100px;border-left:1px solid #e0e0e0;font-size:11px;text-align:center;}
+#header .dropdown .first{border-left:none;}
+#header .dropdown .pic{width:160px;height:110px;margin-left:auto;margin-right:auto;margin-bottom:16px;}
 #header .dropdown .pic a{display:block;}
 #header .dropdown .pic a,#header .dropdown .pic img{width:160px;height:110px;}
-#header .dropdown .first{border-left:none;}
+#header .dropdown p{display:block;height:20px;line-height:20px;}
 #header .dropdown .title a{color:#5e5e5e;}
 #header .dropdown .price{color:#ff6700;}
