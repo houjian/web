@@ -172,3 +172,31 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .title .nav li{float:left;font-size:16px;color:#424242;margin-left:30px;}
 #main .title .nav li:hover{color:#ff6700;border-bottom:2px solid #ff6700;cursor:pointer;}
 
+/*footer底部服务信息区*/
+#footer .service{padding:27px 0;border-bottom:1px solid #e0e0e0;}
+#footer .service li{float:left;width:243px;border-left:1px solid #e0e0e0;}
+#footer .service li.first{border-left:none;}
+#footer .service li a{display:block;width:130px;height:25px;line-height:25px;margin:0 auto;padding-left:30px;font-size:16px;
+    color:#616161;background:url("../img/icon/icon-service.png") no-repeat 0 0;}
+#footer .service li a.one{background-position:0 -25px;}
+#footer .service li a.seven{background-position:0 -75px;}
+#footer .service li a.fifteen{background-position:0 -125px;}
+#footer .service li a.free{background-position:0 -175px;}
+#footer .service li a.after{background-position:0 -225px;}
+#footer .service li a.one:hover{background-position:0 0;color:#ff6700;}
+#footer .service li a.seven:hover{background-position:0 -50px;color:#ff6700;}
+#footer .service li a.fifteen:hover{background-position:0 -100px;color:#ff6700;}
+#footer .service li a.free:hover{background-position:0 -150px;color:#ff6700;}
+#footer .service li a.after:hover{background-position:0 -200px;color:#ff6700;}
+#footer .link{padding:40px 0;}
+#footer .link dl{float:left;width:160px;height:112px;}
+#footer .link dt{height:17px;line-height:17px;margin-bottom:26px;font-size:14px;color:#424242;}
+#footer .link dd{height:18px;line-height:18px;margin-top:10px;}
+#footer .link dd a{font-size:11px;color:#7d8181;}
+#footer .link dd a:hover{color:#ff6700;}
+#footer .contact{width:251px;float:right;border-left:1px solid #e0e0e0;text-align:center;}
+#footer .contact strong{display:block;height:22px;line-height:22px;font-size:22px;font-weight:normal;color:#ff6700;margin-bottom:5px;}
+#footer .contact p{font-size:12px;color:#616161;margin-bottom:16px;}
+#footer .contact a{display:inline-block;width:94px;height:28px;line-height:28px;color:#ff6700;border:1px solid #ff6700;
+    font-size:12px;padding-left:24px;background:url("../img/icon/icon-contact.png") no-repeat 0 -28px;text-align:left;}
+#footer .contact a:hover{background-color:#ff6700;background-position:0 0;color:#fff;}
