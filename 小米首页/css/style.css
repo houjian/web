@@ -6,7 +6,8 @@ li{list-style:none;}
 a{text-decoration:none;}
 img{border:none;}
 input{outline:none;}
-body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;color:#333;}
+body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC",
+    "WenQuanYi Micro Hei",sans-serif;color:#333;}
 
 /*public*/
 .clear{zoom:1;}
@@ -85,7 +86,8 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #home .pager a{display:block;width:6px;height:6px;float:left;margin:0 5px;border-radius:50%;background:#e8e8e8;border:2px solid #757575;}
 #home .pager a:hover,#home .pager a.active{background:#757575;border-color:#e8e8e8;}
 #home .nav{position:absolute;top:0;left:0;}
-#home .nav .category-list{width:234px;padding-top:20px;padding-bottom:20px;background-color:#333;background:rgba(0,0,0,0.6);position:relative;}
+#home .nav .category-list{width:234px;padding-top:20px;padding-bottom:20px;background-color:#333;
+        background:rgba(0,0,0,0.6);position:relative;}
 #home .nav .category-list .title{display:block;height:42px;line-height:42px;padding-left:29px;color:#fff;font-size:14px;
     background-image:url("../img/icon/icon-right.png");background-repeat:no-repeat;background-position: 200px 13px;}
 #home .nav .category-list .title:hover{background-color:#ff6700;}
@@ -169,10 +171,50 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .title .more a{display:inline-block;width:92px;background:url("../img/icon/icon-more.png") no-repeat 72px -24px;
     font-size:16px;color:#424242;}
 #main .title .more a:hover{color:#ff6700;background-position:72px 0px;}
-#main .title .nav li{float:left;font-size:16px;color:#424242;margin-left:30px;}
-#main .title .nav li:hover{color:#ff6700;border-bottom:2px solid #ff6700;cursor:pointer;}
+#main .title .nav li{float:left;font-size:16px;color:#424242;margin-left:30px;cursor:pointer;}
+#main .title .nav li.active{color:#ff6700;border-bottom:2px solid #ff6700;}
 
-/*footer底部服务信息区*/
+#main .free{background:#ffac13;}
+#main .new{background:#83c44e;}
+#main .gift{background:#2196f3;}
+#main .sale{background:#e53935;}
+
+#main .side-1{width:234px;height:614px;overflow:hidden;}
+#main .side-1 a{display:block;}
+#main .side-1 a,#main .side-1 img{width:234px;height:614px;}
+
+#main .side-2{width:234px;height:614px;overflow:hidden;}
+#main .side-2 a{display:block;margin-bottom:14px;}
+#main .side-2 a,#main .side-2 img{width:234px;height:300px;}
+
+#main .brick{width:992px;height:614px;overflow:hidden;}
+#main .brick .item{float:left;width:234px;height:280px;padding-top:20px;margin-left:14px;margin-bottom:14px;
+    text-align:center;background:#fff;overflow:hidden;position:relative;}
+#main .brick .figure,#main .brick img{width:160px;height:160px;}
+#main .brick .figure{display:block;margin:0 auto 20px auto;}
+#main .brick .name{font-size:14px;color:#333;font-weight:normal;margin-bottom:2px;}
+#main .brick .info{font-size:12px;color:#b0b0b0;margin-bottom:10px;}
+#main .brick .evaluate{font-size:12px;color:#b0b0b0;margin-top:10px;margin-bottom:10px;}
+#main .brick .price{font-size:14px;color:#ff6700;}
+#main .brick .flag{position:absolute;top:0;left:50%;width:64px;height:20px;margin-left:-32px;font-size:12px;color:#fff;}
+#main .brick .comment{position:absolute;left:0;bottom:-76px;padding:8px 30px;height:60px;background:#ff6700;
+    font-size:12px;text-align:left;}
+#main .brick .review{display:block;color:#fff;}
+#main .brick .author{display:block;color:#ffc299;margin-top:5px;}
+#main .brick .last{float:left;overflow:hidden;}
+
+#main .brick .last li{width:200px;height:100px;margin:0 0 14px 14px;padding:43px 0 0 34px;background:#fff;position:relative;}
+#main .brick .last .figure,#main .brick .last img{display:block;width:80px;height:80px;}
+#main .brick .last .figure{position:absolute;top:32px;right:20px;margin:0;}
+#main .brick .last .name{display:block;width:94px;height:21px;line-height:21px;color:#333;white-space:nowrap;
+    text-overflow:ellipsis;overflow:hidden;}
+#main .brick .last .price{font-size:14px;color:#ff6700;}
+#main .brick .last .icon-scan{position:absolute;top:44px;right:35px;display:block;width:48px;height:48px;
+    background:url("../img/icon/icon-scan.png") no-repeat;}
+#main .brick .last .scan{font-size:18px;color:#333;font-weight:normal;}
+#main .brick .last .hot{font-size:14px;color:#b0b0b0;}
+
+    /*footer底部服务信息区*/
 #footer .service{padding:27px 0;border-bottom:1px solid #e0e0e0;}
 #footer .service li{float:left;width:243px;border-left:1px solid #e0e0e0;}
 #footer .service li.first{border-left:none;}
@@ -210,6 +252,4 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #info .info p,#info .info p a{font-size:12px;color:#b0b0b0;}
 #info .link{padding-top:4px;}
 #info .link img{width:auto;height:28px;margin-left:7px;}
-#info .slogan{clear:both;width:267px;height:19px;margin:30px auto 0 auto;
-    background:url("../img/slogan2016.png") no-repeat;}
-
+#info .slogan{clear:both;width:267px;height:19px;margin:30px auto 0 auto;background:url("../img/slogan2016.png") no-repeat;}
