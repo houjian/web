@@ -33,17 +33,17 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #topbar .cart .active{background:#fff;color:#ff6700;}
 #topbar .cart .active .icon{background-position:0 -20px;}
 #topbar .cart .cart-down{display:none;position:absolute;top:40px;right:0;width:320px;height:100px;line-height:100px;
-    background:#fff;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.2);color:#424242;}
-#topbar .cart .active .cart-down{display:block}
+    background:#fff;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.2);color:#424242;z-index:10;}
 
 /*头部导航header*/
-#header .container{padding-top:22px;padding-bottom:23px;}
+#header{position:relative;}
+#header .container{padding-top:22px;padding-bottom:23px;position:relative;}
 #header .logo{width:55px;background:#ff6700;}
 #header .logo a{display:block;width:55px;height:55px;background:url("../img/mi-logo.png") no-repeat center;}
 #header .nav ul{margin-left:180px;}
-#header .nav li{float:left;height:55px;line-height:55px;margin:0 10px;}
-#header .nav li a{font-size:16px;color:#333;}
-#header .nav li a:hover{color:#ff6700;}
+#header .nav .nav-item{float:left;height:55px;line-height:55px;}
+#header .nav .nav-item a{font-size:16px;color:#333;margin:0 10px;}
+#header .nav .active a{color:#ff6700;}
 #header .search form{width:296px;height:50px;margin-top:3px;margin-bottom:2px;position:relative;}
 #header .search .text,#header .search .button-wrapper{position:absolute;top:0;}
 #header .search .text{right:51px;width:223px;height:48px;padding:0 10px;font-size:14px;line-height:48px;border:1px solid #e0e0e0;}
@@ -56,12 +56,13 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #header .search .hot{position:absolute;top:14px;right:61px;z-index:3;}
 #header .search .hot a{display:inline-block;font-size:12px;color:#757575;background:#eee;padding:0 5px;}
 #header .search .hot a:hover{background:#ff6700;color:#fff;}
-#header .tips{display:none;position:absolute;top:49px;left:0;border:1px solid #ff6700;}
+#header .tips{display:none;position:absolute;top:49px;left:0;border:1px solid #ff6700;z-index:3;}
 #header .search li a{display:block;width:213px;height:30px;line-height:30px;padding:0 15px;font-size:12px;background:#fff;}
 #header .search li a:hover{background:#f7f7f7;}
 #header .search li .name{color:#5e5e5e;}
 #header .search li .num{float:right;color:#c7c7c7;}
-#header .dropdown{display:none;height:229px;border-top:1px solid #e0e0e0;box-shadow:0 3px 3px rgba(0,0,0,0.2);background:#fff;}
+#header .dropdown{display:none;position:absolute;width:100%;min-width:1226px;height:229px;border-top:1px solid #e0e0e0;
+    background:#fff;box-shadow:0 3px 3px rgba(0,0,0,0.2);overflow:hidden;z-index:4;}
 #header .dropdown .container{padding:0;}
 #header .dropdown ul{padding-top:35px;height:195px;}
 #header .dropdown li{float:left;width:203px;height:100px;border-left:1px solid #e0e0e0;font-size:11px;text-align:center;}
@@ -99,7 +100,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #home .list-2{width:530px;}
 #home .list-3{width:795px;}
 #home .category li{width:235px;padding:18px 10px 18px 20px;position:relative;}
-#home .category li .thumb{display:block;height:40px;line-height:40px;color:#333;}
+#home .category li .thumb{display:block;height:40px;line-height:40px;margin-right:72px;color:#333;}
 #home .category li .thumb:hover{color:#ff6700;}
 #home .category li img{width:40px;height:40px;margin-right:12px;vertical-align:middle;}
 #home .category li span{iline-height:40px;}
@@ -151,8 +152,8 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 .control .prev.disable{background-position:0 -22px;}
 .control .next.disable{background-position:0 0;}
 
-#home .product{margin-bottom:40px;overflow:hidden;}
-#home .product ul{width:2466px;}
+#home .product{margin-bottom:40px;height:340px;overflow:hidden;position:relative;}
+#home .product ul{width:2466px;position:absolute;top:0;left:0;}
 #home .product li{float:left;width:234px;height:339px;border-top:1px solid #ff6700;text-align:center;background:#fafafa;
     margin-left:14px;}
 #home .product li.first{margin-left:0;}
@@ -221,7 +222,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .smart .item-m img{width:160px;height:160px;}
 #main .recommend .first{margin-left:0;}
 #main .recommend .brick{width:1226px;height:300px;overflow:hidden;position:relative;}
-#main .recommend .brick ul{width:4946px;}
+#main .recommend .brick ul{width:4946px;position:absolute;top:0;left:0;}
 #main .recommend .item-m .figure{margin-top:20px;width:150px;height:140px;}
 #main .recommend .item-m img{width:140px;height:140px;}
 #main .recommend .item-m .price{margin-top:10px;}
@@ -254,8 +255,8 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .content .content-list.three h2{color:#2196f3;}
 #main .content .content-list.four h2{color:#e53935;}
 
-#main .content .content-list .wrapper{width:296px;overflow:hidden;position:relative;}
-#main .content .content-list ul{width:1184px;}
+#main .content .content-list .wrapper{width:296px;height:335px;overflow:hidden;position:relative;}
+#main .content .content-list ul{width:1184px;position:absolute;left:0;top:0;}
 #main .content .item-list{float:left;width:296px;height:335px;text-align:center;}
 #main .content .item-list h4{margin-bottom:5px;}
 #main .content .item-list h4 a{font-size:20px;font-weight:400;color:#333;}

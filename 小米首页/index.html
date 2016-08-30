@@ -5,6 +5,8 @@
     <title>小米商城-小米官方网站，小米手机、红米手机、小米笔记本、小米电视正品专卖</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/mi.js"></script>
 </head>
 <body>
 <div id="topbar">
@@ -31,7 +33,6 @@
             <a href="#">Select Region</a>
         </div>
         <div class="cart fr">
-            <!--<a class="cart-link active" href="#">-->
             <a class="cart-link" href="#">
                 <i class="icon"></i>购物车（<span>0</span>）
                 <div class="cart-down">购物车中还没有商品，赶紧选购吧！</div>
@@ -49,19 +50,18 @@
         <div class="logo fl"><a href="#"></a></div>
         <div class="nav fl">
             <ul class="clear">
-                <li><a href="javascript:void(0);">小米手机</a></li>
-                <li><a href="javascript:void(0);">红米</a></li>
-                <li><a href="javascript:void(0);">平板 · 笔记本</a></li>
-                <li><a href="javascript:void(0);">电视</a></li>
-                <li><a href="javascript:void(0);">盒子 · 影音</a></li>
-                <li><a href="javascript:void(0);">路由器</a></li>
-                <li><a href="javascript:void(0);">智能硬件</a></li>
-                <li><a href="#">服务</a></li>
-                <li><a href="#">社区</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">小米手机</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">红米</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">平板 · 笔记本</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">电视</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">盒子 · 影音</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">路由器</a></li>
+                <li class="nav-item list"><a href="javascript:void(0)">智能硬件</a></li>
+                <li class="nav-item"><a href="#">服务</a></li>
+                <li class="nav-item"><a href="#">社区</a></li>
             </ul>
         </div>
         <div class="search fr">
-            <!--<form action="#" class="hover focus">-->
             <form action="#" class="">
                 <input class="text" type="text">
                 <label class="button-wrapper">
@@ -452,15 +452,15 @@
             <a href="#"><img src="img/home/29d75e53-66c0-4ff0-be0c-ed59abf3b47e.jpg" alt="小米电视"></a>
         </div>
         <div class="direction clear">
-            <a class="prev" href="#"></a>
-            <a class="next" href="#"></a>
+            <a class="prev" href="javascript:void(0)"></a>
+            <a class="next" href="javascript:void(0)"></a>
         </div>
         <div class="pager clear">
-            <a class="active" href="javascript:void(0);"></a>
-            <a href="javascript:void(0);"></a>
-            <a href="javascript:void(0);"></a>
-            <a href="javascript:void(0);"></a>
-            <a href="javascript:void(0);"></a>
+            <a class="active" href="javascript:void(0)"></a>
+            <a href="javascript:void(0)"></a>
+            <a href="javascript:void(0)"></a>
+            <a href="javascript:void(0)"></a>
+            <a href="javascript:void(0)"></a>
         </div>
         <div class="nav">
             <ul class="category-list">
@@ -1012,8 +1012,8 @@
         <div class="title">
             <h2>小米明星单品</h2>
             <div class="control">
-                <a href="javascript:void(0);" class="prev"></a>
-                <a href="javascript:void(0);" class="next"></a>
+                <a href="javascript:void(0)" class="prev disable"></a>
+                <a href="javascript:void(0)" class="next"></a>
             </div>
         </div>
         <div class="product">
@@ -1108,7 +1108,7 @@
             <div class="title">
                 <h2>智能硬件</h2>
                 <div class="more">
-                    <a href="javascript:void(0);">查看全部</a>
+                    <a href="javascript:void(0)">查看全部</a>
                 </div>
             </div>
             <div class="row clear">
@@ -2582,8 +2582,8 @@
             <div class="title">
                 <h2>为你推荐</h2>
                 <div class="control">
-                    <a href="javascript:void(0);" class="prev"></a>
-                    <a href="javascript:void(0);" class="next"></a>
+                    <a href="javascript:void(0)" class="prev"></a>
+                    <a href="javascript:void(0)" class="next"></a>
                 </div>
             </div>
             <div class="row">
@@ -2933,7 +2933,7 @@
                                     <p class="desc"><a href="#">九门恩怨，盗墓笔记前传上线</a></p>
                                     <p class="price"><a href="#">免费</a></p>
                                     <a class="figure" href="#">
-                                        <img src="img/main/8e3584b6-3169-41c6-9356-939ec79aac2b.jpg" alt="老九门">
+                                        <img src="img/main/6032cb36-587f-4366-89ef-aefed2546552.jpg" alt="老九门">
                                     </a>
                                 </li>
                                 <li class="item-list">
@@ -2941,7 +2941,7 @@
                                     <p class="desc"><a href="#">在电脑上玩遍小米所有手游</a></p>
                                     <p class="price"><a href="#">免费</a></p>
                                     <a class="figure" href="#">
-                                        <img src="img/main/T1dlVgBbbT1RXrhCrK.jpg" alt="米柚手游模拟器">
+                                        <img src="img/main/T1czW_BXCv1R4cSCrK.png" alt="米柚手游模拟器">
                                     </a>
                                 </li>
                                 <li class="item-list">
@@ -2949,7 +2949,7 @@
                                     <p class="desc"><a href="#">玩剑侠情缘手游，领666壕礼！！</a></p>
                                     <p class="price"><a href="#">免费</a></p>
                                     <a class="figure" href="#">
-                                        <img src="img/main/T1R3WgBjKT1RXrhCrK.jpg" alt="剑侠情缘">
+                                        <img src="img/main/010948ae-bd48-49c6-af12-4ec8c4a0c829.png" alt="剑侠情缘">
                                     </a>
                                 </li>
                                 <li class="item-list">
@@ -2958,7 +2958,7 @@
                                     </p>
                                     <a class="more game" href="#">前往小米游戏商店</a>
                                     <a class="figure" href="#">
-                                        <img src="img/main/more-duokan.jpg" alt="前往小米游戏商店">
+                                        <img src="img/main/more-game.jpg" alt="前往小米游戏商店">
                                     </a>
                                 </li>
                             </ul>
