@@ -135,7 +135,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #home .hot .list{width:978px;height:170px;float:right;}
 #home .hot .list li{width:316px;float:left;margin-left:15px;}
 #home .hot .list .first{margin-left:0;}
-#home .hot .list a{display:block;}
+#home .hot .list a{display:block;transition:all .2s linear;}
 #home .hot .list a,#home .hot .list img{width:316px;height:170px;}
 #home .hot .list a:hover{box-shadow:0 15px 30px rgba(0,0,0,0.1);}
 #home .start .title{position:relative;}
@@ -240,8 +240,57 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .comment li .sep{margin:0 0.4em;color:#e0e0e0;}
 #main .comment li .name{display:inline-block;font-size:14px;font-weight:normal;color:#333;height:18px;}
 #main .comment li .price{display:inline;font-size:12px;color:#ff6700;}
+
+#main .content .content-list{float:left;width:296px;height:375px;padding-top:45px;margin-left:14px;background:#fff;
+    border-top:1px solid #ff6700;position:relative;transition:all .2s linear;}
+#main .content .content-list:hover{box-shadow:0 15px 30px rgba(0,0,0,0.1);transform:translate3d(0, -2px, 0);}
+#main .content .content-list.one{border-top-color:#ffac13;margin-left:0;}
+#main .content .content-list.two{border-top-color:#83c44e;}
+#main .content .content-list.three{border-top-color:#2196f3;}
+#main .content .content-list.four{border-top-color:#e53935;}
+#main .content .content-list h2{font-size:16px;font-weight:normal;text-align:center;margin-bottom:18px;}
+#main .content .content-list.one h2{color:#ffac13;}
+#main .content .content-list.two h2{color:#83c44e;}
+#main .content .content-list.three h2{color:#2196f3;}
+#main .content .content-list.four h2{color:#e53935;}
+
+#main .content .content-list .wrapper{width:296px;overflow:hidden;position:relative;}
+#main .content .content-list ul{width:1184px;}
+#main .content .item-list{float:left;width:296px;height:335px;text-align:center;}
+#main .content .item-list h4{margin-bottom:5px;}
+#main .content .item-list h4 a{font-size:20px;font-weight:400;color:#333;}
+#main .content .item-list .desc{height:200px;height:40px;margin:0 48px 10px 48px;}
+#main .content .item-list .desc a{font-size:12px;color:#b0b0b0;}
+#main .content .item-list .price{margin-bottom:15px;height:21px;}
+#main .content .item-list .price a{font-size:14px;color:#333;}
+#main .content .item-list .figure{display:block;margin:0 auto;}
+#main .content .item-list .figure,#main .content .item-list img{width:216px;height:154px;}
+#main .content .item-list .more{display:block;width:118px;height:28px;line-height:28px;margin:0 auto 30px auto;background:#fff;
+    font-size:12px;border-width:1px;border-style:solid;}
+#main .content .book{color:#ffac13;border-color:#ffac13;}
+#main .content .book:hover{color:#fff;background:#ffac13;}
+#main .content .miui{color:#83c44e;border-color:#83c44e;}
+#main .content .miui:hover{color:#fff;background:#83c44e;}
+#main .content .game{color:#2196f3;border-color:#2196f3;}
+#main .content .game:hover{color:#fff;background:#2196f3;}
+#main .content .app{color:#e53935;border-color:#e53935;}
+#main .content .app:hover{color:#fff;background:#e53935;}
+
+#main .content .pager{position:absolute;left:50%;margin-left:-68px;bottom:25px;}
+#main .content .pager a{display:block;width:6px;height:6px;float:left;margin:0 12px;border-radius:50%;background:#b0b0b0;
+    border:2px solid #fff;}
+#main .content .pager a:hover{background:#ff6700;}
+#main .content .pager a.active{border-color:#ff6700;background:#fff;}
+#main .content .paging{display:none;}
+#main .content .paging a{display:block;width:20px;height:48px;background:url("../img/icon/icon-pager.png") no-repeat;
+    position:absolute;top:50%;margin-top:-24px;}
+#main .content .paging .prev{left:0;background-position:-40px 0;}
+#main .content .paging .next{right:0;background-position:-60px 0;}
+#main .content .paging .prev:hover{left:0;background-position:0px 0;}
+#main .content .paging .next:hover{right:0;background-position:-20px 0;}
+
 #main .video li{float:left;width:296px;height:285px;margin-left:14px;background:#fff;text-align:center;
-    transition: all .2s linear;}
+    transition:all .2s linear;}
 #main .video li.first{margin-left:0;}
 #main .video .figure{display:block;margin-bottom:28px;position:relative;}
 #main .video .figure,#main .video img{width:296px;height:180px;}
