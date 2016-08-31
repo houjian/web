@@ -94,70 +94,93 @@ $(function () {
         });
     })();
 
-    // 垂直导航
-    $('#home').find('li.category').hover(function() {
-        $(this).find('div').show();
-    }, function() {
-        $(this).find('div').hide();
-    });
+    function slideControl(params) {
+        (function() {
+            var control = params.control,
+                slideTimer,
+                ul = params.slider,
+                now = 0,
+                count = params.count;
 
-    // 明星单品
-    (function() {
-        var home = $('#home'),
-            control = home.find('.control a'),
-            slideTimer,
-            ul = home.find('.product ul'),
-            now = 0;
-
-        control.removeClass('disable').eq(now).addClass('disable');
-        autoSlide();
-
-        function autoSlide() {
-            slideTimer = window.setInterval(function() {
-                now = ++now % 2;
-                switchToIndex(now);
-            }, 5000);
-        }
-
-        function switchToIndex(index) {
-            ul.stop().animate({
-                'left': index * -1240 + 'px'
-            }, 400);
-            control.removeClass('disable').eq(index).addClass('disable');
-        }
-
-        ul.children().hover(function() {
-            clearTimeout(slideTimer);
-        }, function() {
+            control.removeClass('disable').eq(now).addClass('disable');
             autoSlide();
+
+            function autoSlide() {
+                slideTimer = window.setInterval(function() {
+                    now = ++now % count;
+                    switchToIndex(now);
+                }, 5000);
+            }
+
+            function switchToIndex(index) {
+                ul.stop().animate({
+                    'left': index * -1240 + 'px'
+                }, 400);
+                if (index === 0 || index === count - 1) {
+                    control.removeClass('disable').eq(index / (count - 1)).addClass('disable');
+                } else {
+                    control.removeClass('disable')
+                }
+            }
+
+            ul.children().hover(function() {
+                clearTimeout(slideTimer);
+            }, function() {
+                autoSlide();
+            });
+
+            control.on('click', function() {
+                if ($(this).hasClass('disable')) {
+                    return;
+                }
+                now += $(this).index() * 2 - 1;
+                switchToIndex(now);
+            });
+        })();
+    }
+
+    (function() {
+        var home = $('#home');
+
+        // 垂直导航
+        home.find('li.category').hover(function() {
+            $(this).find('div').show();
+        }, function() {
+            $(this).find('div').hide();
         });
 
-        control.on('click', function() {
-            if ($(this).hasClass('disable')) {
-                return;
-            }
-            now += $(this).index() * 2 - 1;
-            switchToIndex(now);
+        // 明星单品
+        slideControl({
+            slider: home.find('.product ul'),
+            control: home.find('.control a'),
+            count: 2
         });
     })();
 
-    // 浮现评论
-    $('#main').find('.item-m').hover(function() {
-        $(this).find('a.comment').stop().animate({
-            'bottom': '0px'
-        }, 200);
-    }, function() {
-        $(this).find('a.comment').stop().animate({
-            'bottom': '-76px'
-        }, 200);
-    });
-
-    // tab切换
     (function() {
         var main = $('#main'),
-            ul = main.find('.title .nav ul');
+            list = main.find('.video .row li');
 
-        ul.each(function(i, item) {
+        // 为你推荐
+        slideControl({
+            slider: main.find('.recommend .brick ul'),
+            control: main.find('.recommend .control a'),
+            count: 4
+        });
+
+        // 浮现评论
+        main.find('.item-m').hover(function() {
+            $(this).find('a.comment').stop().animate({
+                'bottom': '0px'
+            }, 200);
+        }, function() {
+            $(this).find('a.comment').stop().animate({
+                'bottom': '-76px'
+            }, 200);
+        });
+
+        // tab切换
+        main.find('.title .nav ul').each(function(i, item) {
             var $it = $(item),
                 childs = $it.children(),
                 index;
@@ -167,50 +190,13 @@ $(function () {
                 childs.removeClass('active').eq(index).addClass('active');
                 $it.parents('.title').next().find('.brick ul').hide().eq(index).show();
             });
-        })
-    })();
-
-    // 为你推荐
-    (function() {
-        var recommend = $('#main').find('.recommend'),
-            control = recommend.find('.control a'),
-            slideTimer,
-            ul = recommend.find('.brick ul'),
-            now = 0;
-
-        control.removeClass('disable').eq(now).addClass('disable');
-        autoSlide();
-
-        function autoSlide() {
-            slideTimer = window.setInterval(function() {
-                now = ++now % 4;
-                switchToIndex(now);
-            }, 5000);
-        }
-
-        function switchToIndex(index) {
-            ul.stop().animate({
-                'left': index * -1240 + 'px'
-            }, 400);
-            if (index === 0 || index === 3) {
-                control.removeClass('disable').eq(index / 3).addClass('disable');
-            } else {
-                control.removeClass('disable')
-            }
-        }
-
-        ul.children().hover(function() {
-            clearTimeout(slideTimer);
-        }, function() {
-            autoSlide();
         });
 
-        control.on('click', function() {
-            if ($(this).hasClass('disable')) {
-                return;
-            }
-            now += $(this).index() * 2 - 1;
-            switchToIndex(now);
+        // 视频区域播放图标
+        list.hover(function() {
+            list.removeClass('active').eq($(this).index()).addClass('active');
+        }, function() {
+            list.removeClass('active');
         });
     })();
 
@@ -220,9 +206,9 @@ $(function () {
             list = main.find('.content-list');
 
         list.hover(function() {
-            $(this).find('.paging').show(200);
+            $(this).find('.paging').show(100);
         }, function() {
-            $(this).find('.paging').hide(200);
+            $(this).find('.paging').hide(100);
         });
 
         list.each(function(i, item) {

@@ -20,7 +20,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 .container{width:1226px;margin:0 auto;}
 
 /*顶部topbar*/
-#topbar{height:40px;font-size:12px;background:#333;}
+#topbar{height:40px;font-size:12px;background:#333;position:relative;z-index:10;}
 #topbar .nav{overflow:hidden;}
 #topbar .nav,#topbar .login{height:40px;line-height:40px;}
 #topbar .nav a,#topbar .login a{color:#b0b0b0;}
@@ -32,11 +32,11 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
     background:url("../img/icon/icon-cart.png") no-repeat 0 0;}
 #topbar .cart .active{background:#fff;color:#ff6700;}
 #topbar .cart .active .icon{background-position:0 -20px;}
-#topbar .cart .cart-down{display:none;position:absolute;top:40px;right:0;width:320px;height:100px;line-height:100px;
-    background:#fff;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.2);color:#424242;z-index:10;}
+#topbar .cart .cart-down{display:none;position:absolute;top:40px;right:0;width:320px;height:100px;line-height:100px;background:#fff;
+    text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.2);color:#424242;z-index:9;+border:1px solid #e0e0e0;+border-top:none;}
 
 /*头部导航header*/
-#header{position:relative;}
+#header{position:relative;z-index:5;}
 #header .container{padding-top:22px;padding-bottom:23px;position:relative;}
 #header .logo{width:55px;background:#ff6700;}
 #header .logo a{display:block;width:55px;height:55px;background:url("../img/mi-logo.png") no-repeat center;}
