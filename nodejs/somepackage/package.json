@@ -1,0 +1,5 @@
+{
+    "main" : "./lib/interface.js",
+    "description" : "This is hello package.",
+    "version" : "0.0.1"
+}
