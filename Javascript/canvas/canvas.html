@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+<body>
+<canvas id="drawing" width="200" height="200">A drawing of something.</canvas>
+<script type="text/javascript">
+    (function () {
+        var canvas = document.getElementById('drawing');
+        console.log(canvas);
+
+        if (canvas.getContext) {
+            // 获取2d上下文对象
+            var context = canvas.getContext('2d');
+
+            context.save();
+
+            // 阴影
+            context.shadowOffsetX = 5;
+            context.shadowOffsetY = 5;
+            context.shadowBlur = 4;
+            context.shadowColor = 'rgba(0,0,0,0.5)';
+
+            // 填充
+            context.fillStyle = '#ff0000';
+            context.fillRect(10, 10, 50, 50);
+            context.fillStyle = 'rgba(0,0,255,0.5)';
+            context.fillRect(30, 30, 50, 50);
+
+            // 描边
+            context.strokeStyle = '#ff0000';
+            context.strokeRect(110, 10, 50, 50);
+            context.lineWidth = 5;
+            console.log(context.lineCap, context.lineJoin);
+            context.strokeStyle = 'rgba(0,0,255,0.5)';
+            context.strokeRect(130, 30, 50, 50);
+
+            context.restore();
+
+            // 渐变
+            var gradient = context.createLinearGradient(30, 130, 80, 180);
+            gradient.addColorStop(0, 'white');
+            gradient.addColorStop(1, 'black');
+            context.fillStyle = '#ff0000';
+            context.fillRect(10, 110, 50, 50);
+            context.fillStyle = gradient;
+            context.fillRect(30, 130, 50, 50);
+
+            gradient = context.createRadialGradient(155, 155, 10, 155, 155, 30);
+            gradient.addColorStop(0, 'white');
+            gradient.addColorStop(1, 'black');
+            context.fillStyle = '#ff0000';
+            context.fillRect(110, 110, 50, 50);
+            context.fillStyle = gradient;
+            context.fillRect(130, 130, 50, 50);
+
+            // 清除区域
+            context.clearRect(40, 40, 10, 10);
+
+            // 创建灰阶过度图像
+            var imageData, data, i, len, red, green, blue, alpha, average;
+
+            imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            data = imageData.data;
+            for (i = 0, len = data.length; i < len; i += 4) {
+                red = data[i];
+                green = data[i + 1];
+                blue = data[i + 2];
+                alpha = data[i + 3];
+
+                average = Math.floor((red + green + blue) / 3);
+                data[i] = average;
+                data[i + 1] = average;
+                data[i + 2] = average;
+            }
+            imageData.data = data;
+
+            var draw = document.createElement('canvas');
+            draw.width = canvas.width;
+            draw.height = canvas.height;
+            draw.getContext('2d').putImageData(imageData, 0, 0);
+
+            // 取得图像的数据URI
+            var imgURI = draw.toDataURL('image/png');
+
+            // 显示图像
+            var image = document.createElement('img');
+            image.src = imgURI;
+            document.body.appendChild(image);
+        }
+    })();
+</script>
+</body>
+</html>

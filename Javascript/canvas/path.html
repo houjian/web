@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Path</title>
+</head>
+<body>
+<canvas id="drawing" width="1200" height="1200">A drawing of something.</canvas>
+<script type="text/javascript">
+    (function () {
+        var canvas = document.getElementById('drawing');
+
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            // 开始绘制路径
+            context.beginPath();
+
+            context.arc(100, 100, 99, 0, 2 * Math.PI, false);
+
+            context.moveTo(194, 100);
+            context.arc(100, 100, 94, 0, 2 * Math.PI, false);
+
+            context.save();
+
+            context.translate(100, 100);
+            context.rotate(1);
+
+            context.moveTo(0, 0);
+            context.lineTo(0, -75);
+
+            context.moveTo(0, 0);
+            context.lineTo(-60, 0);
+
+            context.stroke();
+
+            // 绘制文字
+            context.font = 'bold 14px Arial';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText('12', 0, -80);
+
+            context.textAlign = 'start';
+            context.fillText('12', 0, -60);
+
+            context.textAlign = 'end';
+            context.fillText('12', 0, -40);
+
+            console.log(context.measureText('12'));
+
+            if (context.isPointInPath(100, 100)) {
+                console.log('Point(100, 100) is in the path.');
+            }
+
+            context.restore();
+
+            var imgURI = canvas.toDataURL('image/png');
+            var image = document.createElement('img');
+            image.src = imgURI;
+            context.drawImage(image, 10, 10, 100, 100, 20, 80, 50, 50);
+        }
+    })();
+</script>
+</body>
+</html>
