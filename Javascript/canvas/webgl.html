@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL</title>
+</head>
+<body>
+<canvas id="drawing" width="640" height="480">A drawing of something.</canvas>
+<script type="x-shader/x-vertex" id="vertexShader">
+    attribute vec2 aVertexPosition;
+
+    void main() {
+        gl_Position = vec4(aVertexPosition, 0.0, 1.0);
+    }
+</script>
+<script type="x-shader/x-fragment" id="fragmentShader">
+    void main() {
+        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    }
+</script>
+<script type="text/javascript">
+    (function () {
+        var canvas = document.getElementById('drawing'), gl;
+
+        if (canvas.getContext) {
+            try {
+                // 获取WebGL上下文对象
+                gl = canvas.getContext('experimental-webgl');
+            } catch (ex) {
+            }
+
+            if (gl) {
+                // 清理缓冲区
+                gl.clearColor(0.0, 0.0, 0.0, 1.0);
+                gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+                // 视口
+                gl.viewport(0, 0, canvas.width, canvas.height);
+
+                // 创建着色器
+                var vertexGlsl = document.getElementById('vertexShader').text,
+                        fragmentGlsl = document.getElementById('fragmentShader').text;
+
+                var vertexShader = createShader(gl, vertexGlsl, gl.VERTEX_SHADER);
+                var fragmentShader = createShader(gl, fragmentGlsl, gl.FRAGMENT_SHADER);
+
+                // 链接着色器
+                var program = gl.createProgram();
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+                gl.linkProgram(program);
+
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    console.log("Unable to initialize the shader program.");
+                }
+
+                gl.useProgram(program);
+
+                // 绘制图形
+                var vertices = new Float32Array([0, 0.5, 0.5, -0.5, -0.5, -0.5]),
+                        buffer = gl.createBuffer(),
+                        vertexSetSize = 2,
+                        vertexSetCount = vertices.length / vertexSetSize;
+
+                // 创建缓冲区
+                gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+                gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+                // 错误处理
+                var errorCode = gl.getError();
+                while (errorCode) {
+                    console.log('Error occurred: ' + errorCode);
+                    errorCode = gl.getError();
+                }
+
+                // 为着色器传入值
+                var aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
+                gl.enableVertexAttribArray(aVertexPosition);
+                gl.vertexAttribPointer(aVertexPosition, vertexSetSize, gl.FLOAT, false, 0, 0);
+
+                gl.drawArrays(gl.TRIANGLES, 0, vertexSetCount);
+
+                // 纹理
+                var image = new Image(), texture;
+                image.onload = function () {
+                    texture = gl.createTexture();
+                    gl.bindTexture(gl.TEXTURE_2D, texture);
+                    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+
+                    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+
+                    // 清除纹理
+                    gl.bindTexture(gl.TEXTURE_2D, null);
+                };
+                image.src = createImage();
+            } else {
+                alert('WebGL context could not be create.');
+            }
+        }
+
+        function createShader(gl, sourceCode, type) {
+            var shader = gl.createShader(type);
+            gl.shaderSource(shader, sourceCode);
+            gl.compileShader(shader);
+
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                var info = gl.getShaderInfoLog(shader);
+                throw 'Could not compile WebGL program. \n\n' + info;
+            }
+            return shader;
+        }
+
+        function createImage() {
+            var draw = document.createElement('canvas');
+            draw.width = 200;
+            draw.height = 200;
+            var context = draw.getContext('2d');
+
+            context.shadowOffsetX = 5;
+            context.shadowOffsetY = 5;
+            context.shadowBlur = 4;
+            context.shadowColor = 'rgba(0,0,0,0.5)';
+
+            context.fillStyle = '#ff0000';
+            context.fillRect(10, 10, 50, 50);
+            context.fillStyle = 'rgba(0,0,255,0.5)';
+            context.fillRect(30, 30, 50, 50);
+
+            return draw.toDataURL('image/png');
+        }
+    })();
+</script>
+</body>
+</html>
