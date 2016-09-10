@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器检测</title>
+    <style type="text/css">
+        span{padding:3px 10px;font:16px "Microsoft YaHei", Arial;}
+    </style>
+    <script type="text/javascript" src="client.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function () {
+        var key;
+
+        for (key in client.engine) {
+            document.body.innerHTML += '<div><span>' + key + ':</span><span>' + client.engine[key] + '</span></div>';
+        }
+        document.body.appendChild(document.createElement('hr'));
+        for (key in client.browser) {
+            document.body.innerHTML += '<div><span>' + key + ':</span><span>' + client.browser[key] + '</span></div>';
+        }
+        document.body.appendChild(document.createElement('hr'));
+        for (key in client.system) {
+            document.body.innerHTML += '<div><span>' + key + ':</span><span>' + client.system[key] + '</span></div>';
+        }
+    };
+</script>
+</body>
+</html>
