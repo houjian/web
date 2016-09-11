@@ -4,6 +4,11 @@ web学习项目，自己学习过程中所实现的一些案例
 
 ## Javascript
 
+### basic
+
+- [检测浏览器](http://houjian.github.io/web/Javascript/browser/browser.html)
+- [事件处理](http://houjian.github.io/web/Javascript/event/event.html)
+
 ### canvas
 
 - [canvas画图](http://houjian.github.io/web/Javascript/canvas/canvas.html)

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+    <style type="text/css">
+        body{margin:0;padding:0;}
+        .clearfix{zoom:1;}
+        .clearfix:after{content:"";display:block;visibility:hidden;clear:both;}
+        .container{margin:20px;padding:20px;border:20px solid #ccc;background-color:#2f5;float:left;}
+        .box{margin:20px;padding:20px;border:20px solid #1af;width:200px;height:100px;line-height:100px;
+            background-color:#f60;font-size:20px;text-align:center;font-family:"Microsoft YaHei",Arial,Verdana;}
+        .message{border:1px solid #ccc;width:300px;height:300px;margin:20px 10px;float:left;overflow:auto;}
+    </style>
+    <script type="text/javascript" src="event.js"></script>
+</head>
+<body class="clearfix">
+<div class="container" id="container">
+    <div class="box" id="box">
+        <button class="button" id="button">This is Button</button>
+    </div>
+</div>
+<div class="message" id="message"></div>
+<script type="text/javascript">
+    window.onload = function () {
+        var message = $('message');
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function handler(event) {
+            event = EventUtil.getEvent(event);
+            var box = document.createElement('div');
+            box.appendChild(document.createTextNode(event.type + ': ' + this.className));
+            message.appendChild(box);
+        }
+
+        EventUtil.addHandler($('container'), 'click', handler);
+        EventUtil.addHandler($('box'), 'click', handler);
+        EventUtil.addHandler($('button'), 'click', handler);
+    };
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 
 编辑环境：
 
-	IntelliJ IDEA 2016.2.1(64)
+	IntelliJ IDEA
 
 测试浏览器：
 
