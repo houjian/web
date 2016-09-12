@@ -30,11 +30,22 @@ var EventUtil = {
             event.returnValue = false;
         }
     },
-    stopPropagation: function () {
+    stopPropagation: function (event) {
         if (event.stopPropagation) {
             event.stopPropagation();
         } else {
             event.cancelBubble = true;
+        }
+    },
+    getRelatedTarget: function (event) {
+        if (event.relatedTarget) {
+            return event.relatedTarget;
+        } else if (event.toElement) {
+            return event.toElement;
+        } else if (event.fromElement) {
+            return event.fromElement;
+        } else {
+            return null;
         }
     }
 };
