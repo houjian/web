@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>上下文菜单</title>
+    <style type="text/css">
+        .container{font:16px/1.5 Arial;height:50px;line-height:50px;background-color:#11aaff;}
+        .menu{position:absolute;visibility:hidden;background-color:#f8f8f8;}
+        .menu li{list-style:none;width:150px;}
+        .menu a{display:block;text-decoration:none;padding:10px 20px;}
+        .menu a:hover{background-color:#ff6600;}
+    </style>
+    <script type="text/javascript" src="event.js"></script>
+</head>
+<body>
+<div id="myDiv" class="container">Right click me to get a custom context menu.
+    Click anywhere else to get the default context menu.
+</div>
+<ui id="myMenu" class="menu">
+    <li><a href="#">Google</a></li>
+    <li><a href="#">Facebook</a></li>
+    <li><a href="#">Twitter</a></li>
+    <li><a href="#">GitHub</a></li>
+</ui>
+<script type="text/javascript">
+    EventUtil.addHandler(window, 'load', function (event) {
+        var div = document.getElementById('myDiv'),
+            menu = document.getElementById('myMenu');
+
+        EventUtil.addHandler(div, 'contextmenu', function (event) {
+            event = EventUtil.getEvent(event);
+            EventUtil.preventDefault(event);
+            EventUtil.stopPropagation(event);
+
+            var viewport = getViewport(),
+                left = event.clientX + 1,
+                top = event.clientY + 1;
+
+            if (left + menu.offsetWidth >= viewport.width) {
+                left = viewport.width - menu.offsetWidth;
+            }
+
+            menu.style.left = left + 'px';
+            menu.style.top = top + 'px';
+            menu.style.visibility = 'visible';
+        });
+
+        EventUtil.addHandler(menu, 'contextmenu', function (event) {
+            event = EventUtil.getEvent(event);
+            EventUtil.preventDefault(event);
+        });
+
+        EventUtil.addHandler(document, 'contextmenu', function (event) {
+            menu.style.visibility = 'hidden';
+        });
+
+        EventUtil.addHandler(document, 'click', function (event) {
+            menu.style.visibility = 'hidden';
+        });
+
+        function getViewport() {
+            if (document.compatMode == 'BackCompat') {
+                return {
+                    width: document.body.clientWidth,
+                    height: document.body.clientHeight
+                };
+            } else {
+                return {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                };
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

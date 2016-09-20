@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>拖动</title>
+    <style type="text/css">
+        .drag{width:40px;height:40px;background-color:#11aaff;position:absolute;left:450px;top:10px;cursor:move;}
+        .status{width:400px;height:400px;border:1px solid #ccc;overflow:auto;}
+    </style>
+    <script type="text/javascript" src="event.js"></script>
+</head>
+<body>
+<div id="drag" class="drag draggable"></div>
+<div id="status" class="status"></div>
+<script type="text/javascript">
+    EventUtil.addHandler(window, 'load', function (event) {
+
+        function EventTarget() {
+            this.handlers = [];
+        }
+
+        EventTarget.prototype = {
+            constructor: EventTarget,
+            addHandler: function (type, handler) {
+                if (typeof this.handlers[type] == 'undefined') {
+                    this.handlers[type] = [];
+                }
+                this.handlers[type].push(handler);
+            },
+            fire: function (event) {
+                if (!event.target) {
+                    event.target = this;
+                }
+                if (this.handlers[event.type] instanceof Array) {
+                    var handlers = this.handlers[event.type];
+                    for (var i = 0, len = handlers.length; i < len; i++) {
+                        handlers[i](event);
+                    }
+                }
+            },
+            removeHandler: function (type, handler) {
+                if (this.handlers[type] instanceof Array) {
+                    var handlers = this.handlers[type];
+                    for (var i = 0, len = handlers.length; i < len; i++) {
+                        if (handlers[i] === handler) {
+                            break;
+                        }
+                    }
+                    handlers.splice(i, 1);
+                }
+            }
+        };
+
+        var DragDrop = function () {
+
+            var dragdrop = new EventTarget(),
+                    dragging = null,
+                    diffX = 0,
+                    diffY = 0;
+
+            function handleEvent(event) {
+                // 获取时间和目标
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+
+                // 确定时间类型
+                switch (event.type) {
+                    case 'mousedown':
+                        if (target.className.indexOf('draggable') > -1) {
+                            dragging = target;
+                            diffX = event.clientX - target.offsetLeft;
+                            diffY = event.clientY - target.offsetTop;
+
+                            dragdrop.fire({
+                                type: 'dragstart',
+                                target: dragging,
+                                x: event.clientX,
+                                y: event.clientY
+                            });
+                        }
+                        break;
+                    case 'mousemove':
+                        if (dragging !== null) {
+                            dragging.style.left = (event.clientX - diffX) + 'px';
+                            dragging.style.top = (event.clientY - diffY) + 'px';
+
+                            dragdrop.fire({
+                                type: 'drag',
+                                target: dragging,
+                                x: event.clientX,
+                                y: event.clientY
+                            });
+                        }
+                        break;
+                    case 'mouseup':
+                        if (dragging !== null) {
+                            dragdrop.fire({
+                                type: 'dragend',
+                                target: dragging,
+                                x: event.clientX,
+                                y: event.clientY
+                            });
+                            dragging = null;
+                        }
+                        break;
+                }
+            }
+
+            // 公共接口
+            dragdrop.enable = function () {
+                EventUtil.addHandler(document, 'mousedown', handleEvent);
+                EventUtil.addHandler(document, 'mousemove', handleEvent);
+                EventUtil.addHandler(document, 'mouseup', handleEvent);
+            };
+            dragdrop.disable = function () {
+                EventUtil.removeHandler(document, 'mousedown', handleEvent);
+                EventUtil.removeHandler(document, 'mousemove', handleEvent);
+                EventUtil.removeHandler(document, 'mouseup', handleEvent);
+            };
+            return dragdrop;
+        }();
+
+        var status = document.getElementById('status');
+        DragDrop.addHandler('dragstart', function (event) {
+            status.innerHTML = 'Started dragging ' + event.target.id;
+        });
+        DragDrop.addHandler('drag', function (event) {
+            status.innerHTML += '<br/>Dragged ' + event.target.id + ' to (' + event.x + ', ' + event.y + ')';
+        });
+        DragDrop.addHandler('dragend', function (event) {
+            status.innerHTML += '<br/>Dropped ' + event.target.id + ' at (' + event.x + ', ' + event.y + ')';
+        });
+        DragDrop.enable();
+
+    });
+</script>
+</body>
+</html>
