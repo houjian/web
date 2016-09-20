@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie</title>
+    <script type="text/javascript" src="cookie.js"></script>
+</head>
+<body>
+<pre>
+window.onload = function () {
+    var now = +new Date();
+
+    CookieUtil.set('testCookie', 'cookieValue', new Date(now + 1000 * 60), '/', document.domain);
+    console.log(CookieUtil.get('testCookie'));
+    CookieUtil.unset('testCookie', '/');
+    console.log(CookieUtil.get('testCookie'));
+
+    SubCookieUtil.set('data', 'language', 'Javascript');
+    SubCookieUtil.set('data', 'book', 'Javascript Programming');
+    console.log(SubCookieUtil.get('data', 'language'));
+    console.log(SubCookieUtil.getAll('data'));
+
+    SubCookieUtil.setAll('data', {language: 'Python', book: 'Python Programming'});
+    console.log(SubCookieUtil.get('data', 'book'));
+    console.log(SubCookieUtil.getAll('data'));
+
+    SubCookieUtil.unset('data', 'language');
+    console.log(SubCookieUtil.getAll('data'));
+    SubCookieUtil.unsetAll('data');
+    console.log(SubCookieUtil.getAll('data'));
+
+    SubCookieUtil.setAll('data', {language: 'Javascript', book: 'Javascript Programming'}, '/');
+    document.getElementById('target').innerHTML = 'cookie: ' + decodeURIComponent(document.cookie);
+};
+</pre>
+<hr/>
+<div id="target" class="target"></div>
+<script type="text/javascript">
+    window.onload = function () {
+        var now = +new Date();
+
+        CookieUtil.set('testCookie', 'cookieValue', new Date(now + 1000 * 60), '/', document.domain);
+        console.log(CookieUtil.get('testCookie'));
+        CookieUtil.unset('testCookie', '/');
+        console.log(CookieUtil.get('testCookie'));
+
+        SubCookieUtil.set('data', 'language', 'Javascript');
+        SubCookieUtil.set('data', 'book', 'Javascript Programming');
+        console.log(SubCookieUtil.get('data', 'language'));
+        console.log(SubCookieUtil.getAll('data'));
+
+        SubCookieUtil.setAll('data', {language: 'Python', book: 'Python Programming'});
+        console.log(SubCookieUtil.get('data', 'book'));
+        console.log(SubCookieUtil.getAll('data'));
+
+        SubCookieUtil.unset('data', 'language');
+        console.log(SubCookieUtil.getAll('data'));
+        SubCookieUtil.unsetAll('data');
+        console.log(SubCookieUtil.getAll('data'));
+
+        SubCookieUtil.setAll('data', {language: 'Javascript', book: 'Javascript Programming'}, '/');
+        document.getElementById('target').innerHTML = 'cookie: ' + decodeURIComponent(document.cookie);
+    };
+</script>
+</body>
+</html>
