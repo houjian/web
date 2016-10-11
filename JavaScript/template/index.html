@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS模板</title>
+    <style>
+        a{display:block;width:200px;height:30px;line-height:30px;text-decoration:none;color:#333;font-size:18px;}
+        a:hover{color:#f60;}
+    </style>
+</head>
+<body>
+<h1>使用JavaScript模板加载数据</h1>
+<div id="result"></div>
+<script type="text/template" id="template">
+    <ul>
+        <%-- 注释：JavaScript模板 --%>
+        <% for (var i = 0; i < users.length; i++) { %>
+        <li><a href="<%=users[i].url%>" target="_blank"><%=users[i].name%></a></li>
+        <% } %>
+    </ul>
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        function template(id, data) {
+            var html = document.getElementById(id).innerHTML;
+            html = "var p=[];with(this){p.push('" +
+                    html.replace(/[\r\n\t]/g, " ").replace(/<%--(.*?)--%>/g, "")
+                            .replace(/<%=(.*?)%>/g, "');p.push($1);p.push('")
+                            .replace(/<%/g, "');")
+                            .replace(/%>/g, "p.push('") +
+                    "');}return p.join('')";
+            var fn = new Function(html);
+            return fn.call(data);
+        }
+
+        var data = [
+            {'name': 'Google', 'url': 'https://www.google.com/'},
+            {'name': 'Youtube', 'url': 'https://www.youtube.com/'},
+            {'name': 'Facebook', 'url': 'https://www.facebook.com/'},
+            {'name': 'GitHub', 'url': 'https://github.com/'},
+            {'name': 'Twitter', 'url': 'https://twitter.com'},
+            {'name': 'Stack Overflow', 'url': 'http://stackoverflow.com/'}
+        ];
+
+        document.getElementById('result').innerHTML = template('template', {users: data})
+    };
+</script>
+</body>
+</html>
