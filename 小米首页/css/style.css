@@ -37,12 +37,12 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 
 /*头部导航header*/
 #header{position:relative;z-index:5;}
-#header .container{padding-top:22px;padding-bottom:23px;position:relative;}
+#header .container{padding-top:22px;position:relative;}
 #header .logo{width:55px;background:#ff6700;}
 #header .logo a{display:block;width:55px;height:55px;background:url("../img/mi-logo.png") no-repeat center;}
 #header .nav ul{margin-left:180px;}
-#header .nav .nav-item{float:left;height:55px;line-height:55px;}
-#header .nav .nav-item a{font-size:16px;color:#333;margin:0 10px;}
+#header .nav .nav-item{float:left;height:78px;}
+#header .nav .nav-item a{display:block;font-size:16px;color:#333;margin:16px 10px;}
 #header .nav .active a{color:#ff6700;}
 #header .search form{width:296px;height:50px;margin-top:3px;margin-bottom:2px;position:relative;}
 #header .search .text,#header .search .button-wrapper{position:absolute;top:0;}

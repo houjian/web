@@ -38,6 +38,12 @@ $(function () {
         }, function() {
             header.find('.dropdown').stop().slideUp(200);
         });
+
+        header.find('.dropdown').hover(function() {
+            $(this).stop().slideDown(200);
+        }, function() {
+            $(this).stop().slideUp(200);
+        });
     })();
 
     // 轮播图
