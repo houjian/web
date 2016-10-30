@@ -100,7 +100,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #home .list-2{width:530px;}
 #home .list-3{width:795px;}
 #home .category li{width:235px;padding:18px 10px 18px 20px;position:relative;}
-#home .category li .thumb{display:block;height:40px;line-height:40px;margin-right:72px;color:#333;}
+#home .category li .thumb{display:block;height:40px;line-height:40px;color:#333;}
 #home .category li .thumb:hover{color:#ff6700;}
 #home .category li img{width:40px;height:40px;margin-right:12px;vertical-align:middle;}
 #home .category li span{iline-height:40px;}
