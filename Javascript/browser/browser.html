@@ -11,16 +11,31 @@
 <body>
 <script type="text/javascript">
     window.onload = function () {
+        function createTitle(title) {
+            var h2 = document.createElement('h2');
+                title = document.createTextNode(title);
+
+            h2.appendChild(title);
+            return h2;
+        }
+
         var key;
 
+        document.body.appendChild(createTitle('呈现引擎'));
         for (key in client.engine) {
             document.body.innerHTML += '<div><span>' + key + ':</span><span>' + client.engine[key] + '</span></div>';
         }
+
         document.body.appendChild(document.createElement('hr'));
+
+        document.body.appendChild(createTitle('浏览器'));
         for (key in client.browser) {
             document.body.innerHTML += '<div><span>' + key + ':</span><span>' + client.browser[key] + '</span></div>';
         }
+
         document.body.appendChild(document.createElement('hr'));
+
+        document.body.appendChild(createTitle('平台、设备和操作系统'));
         for (key in client.system) {
             document.body.innerHTML += '<div><span>' + key + ':</span><span>' + client.system[key] + '</span></div>';
         }

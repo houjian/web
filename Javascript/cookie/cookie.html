@@ -6,6 +6,7 @@
     <script type="text/javascript" src="cookie.js"></script>
 </head>
 <body>
+<h2>源码</h2>
 <pre>
 window.onload = function () {
     var now = +new Date();
@@ -34,6 +35,7 @@ window.onload = function () {
 };
 </pre>
 <hr/>
+<h2>输出Cookie</h2>
 <div id="target" class="target"></div>
 <script type="text/javascript">
     window.onload = function () {
@@ -59,7 +61,7 @@ window.onload = function () {
         console.log(SubCookieUtil.getAll('data'));
 
         SubCookieUtil.setAll('data', {language: 'Javascript', book: 'Javascript Programming'}, '/');
-        document.getElementById('target').innerHTML = 'cookie: ' + decodeURIComponent(document.cookie);
+        document.getElementById('target').innerHTML = decodeURIComponent(document.cookie);
     };
 </script>
 </body>
