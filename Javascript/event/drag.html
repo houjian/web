@@ -59,11 +59,11 @@
                     diffY = 0;
 
             function handleEvent(event) {
-                // 获取时间和目标
+                // 获取事件和目标
                 event = EventUtil.getEvent(event);
                 var target = EventUtil.getTarget(event);
 
-                // 确定时间类型
+                // 确定事件类型
                 switch (event.type) {
                     case 'mousedown':
                         if (target.className.indexOf('draggable') > -1) {
