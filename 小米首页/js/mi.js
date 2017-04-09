@@ -1,4 +1,36 @@
 $(function () {
+    // 图片懒加载
+    (function() {
+        var scrollTimer = null,
+            resizeTimer = null;
+
+        $(document).on('scroll', function() {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(loadImage, 150);
+        });
+
+        $(window).on('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(loadImage, 150);
+        });
+
+        function loadImage() {
+            var windowHeight = $(window).height(),
+                scrollTop = $(document).scrollTop();
+
+            $('.lz-load').each(function(index, img) {
+                var $img = $(img),
+                    offsetTop = $img.offset().top;
+
+                if (windowHeight + scrollTop >= offsetTop && (scrollTop <= offsetTop + $img.height())) {
+                    $img.attr('src', $img.attr('data-src')).removeClass('lz-load').removeAttr('data-src');
+                }
+            });
+        }
+
+        loadImage();
+    })();
+
     // 购物车效果
     $('#topbar').find('.cart-link').hover(function() {
         $(this).addClass('active').find('.cart-down').stop().slideDown(200);
