@@ -28,4 +28,5 @@ web前端学习项目，自己学习过程中所实现的一些小案例。
 
 ## 综合实例
 
+- [100du享乐网](http://houjian.github.io/web/100du/index.html)
 - [仿小米首页](http://houjian.github.io/web/小米首页/index.html)
