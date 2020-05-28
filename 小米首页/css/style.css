@@ -89,8 +89,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #home .pager a{display:block;width:6px;height:6px;float:left;margin:0 5px;border-radius:50%;background:#e8e8e8;border:2px solid #757575;}
 #home .pager a:hover,#home .pager a.active{background:#757575;border-color:#e8e8e8;}
 #home .nav{position:absolute;top:0;left:0;}
-#home .nav .category-list{width:234px;padding-top:20px;padding-bottom:20px;background-color:#333;
-        background:rgba(0,0,0,0.6);position:relative;}
+#home .nav .category-list{width:234px;padding-top:20px;padding-bottom:20px;background-color:rgba(0,0,0,0.6);position:relative;}
 #home .nav .category-list .title{display:block;height:42px;line-height:42px;padding-left:29px;color:#fff;font-size:14px;
     background-image:url("../img/icon/icon-right.png");background-repeat:no-repeat;background-position: 200px 13px;}
 #home .nav .category-list .title:hover{background-color:#ff6700;}
@@ -103,7 +102,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #home .category li .thumb{display:block;height:40px;line-height:40px;color:#333;}
 #home .category li .thumb:hover{color:#ff6700;}
 #home .category li img{width:40px;height:40px;margin-right:12px;vertical-align:middle;}
-#home .category li span{iline-height:40px;}
+#home .category li span{line-height:40px;}
 #home .category li .buy{position:absolute;top:24px;right:10px;display:block;width:58px;height:22px;line-height:24px;
     border: 1px solid #ff6700;font-size:11px;text-align:center;color:#ff6700;}
 #home .category li .buy:hover{background:#ff6700;color:#fff;}
@@ -176,7 +175,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .title div{position:absolute;right:0;top:17px;height:24px;line-height:24px;}
 #main .title .more a{display:inline-block;width:92px;background:url("../img/icon/icon-more.png") no-repeat 72px -24px;
     font-size:16px;color:#424242;}
-#main .title .more a:hover{color:#ff6700;background-position:72px 0px;}
+#main .title .more a:hover{color:#ff6700;background-position:72px 0;}
 #main .title .nav li{float:left;font-size:16px;color:#424242;margin-left:30px;cursor:pointer;}
 #main .title .nav li.active{color:#ff6700;border-bottom:2px solid #ff6700;}
 
@@ -260,7 +259,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .content .item-list{float:left;width:296px;height:335px;text-align:center;}
 #main .content .item-list h4{margin-bottom:5px;}
 #main .content .item-list h4 a{font-size:20px;font-weight:400;color:#333;}
-#main .content .item-list .desc{height:200px;height:40px;margin:0 48px 10px 48px;}
+#main .content .item-list .desc{height:40px;margin:0 48px 10px 48px;}
 #main .content .item-list .desc a{font-size:12px;color:#b0b0b0;}
 #main .content .item-list .price{margin-bottom:15px;height:21px;}
 #main .content .item-list .price a{font-size:14px;color:#333;}
@@ -287,7 +286,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
     position:absolute;top:50%;margin-top:-24px;}
 #main .content .paging .prev{left:0;background-position:-40px 0;}
 #main .content .paging .next{right:0;background-position:-60px 0;}
-#main .content .paging .prev:hover{left:0;background-position:0px 0;}
+#main .content .paging .prev:hover{left:0;background-position:0 0;}
 #main .content .paging .next:hover{right:0;background-position:-20px 0;}
 
 #main .video li{float:left;width:296px;height:285px;margin-left:14px;background:#fff;text-align:center;
@@ -305,7 +304,7 @@ body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino 
 #main .video .active .play{border-color:#ff6700;background-color:#ff6700;}
 #main .video li:hover{box-shadow:0 15px 30px rgba(0,0,0,0.1);transform:translate3d(0, -2px, 0);}
 
-    /*footer底部服务信息区*/
+/*footer底部服务信息区*/
 #footer .service{padding:27px 0;border-bottom:1px solid #e0e0e0;}
 #footer .service li{float:left;width:243px;border-left:1px solid #e0e0e0;}
 #footer .service li.first{border-left:none;}
