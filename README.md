@@ -1,8 +1,6 @@
 # web
 
-web前端学习项目，自己学习过程中所实现的一些小案例。
-在学习的过程中会尽量优先使用原生JS来操作，主要是为了加强自己对原生JS的理解，
-比较综合的案例才会使用jQuery等一些库。
+web前端学习项目，HTML+CSS+JS，学习过程中的一些小案例和综合项目。
 
 ## JavaScript
 
@@ -21,7 +19,7 @@ web前端学习项目，自己学习过程中所实现的一些小案例。
 - [canvas路径](http://houjian.github.io/web/Javascript/canvas/path.html)
 - [WebGL示例](http://houjian.github.io/web/Javascript/canvas/webgl.html)
 
-### HTML5+CSS3
+## HTML5+CSS3
 
 - [照片墙](https://houjian.github.io/web/HTML5+CSS3/photoWall/index.html)
 - [幽灵按钮](https://houjian.github.io/web/HTML5+CSS3/ghostButtons/index.html)
@@ -29,4 +27,4 @@ web前端学习项目，自己学习过程中所实现的一些小案例。
 ## 综合实例
 
 - [100du享乐网](http://houjian.github.io/web/100du/index.html)
-- [仿小米首页](http://houjian.github.io/web/小米首页/index.html)
+- [高仿小米首页](http://houjian.github.io/web/mi/index.html)
